@@ -24,4 +24,9 @@ public class HomeController {
 		return ResponseEntity.ok(facultyService.getFacultyById(id));
 	}
 	
+	@PostMapping("/add")
+	public ResponseEntity<?> addFaculty(@RequestBody FacultyDto facultyDto){
+		return ResponseEntity.status(HttpStatus.CREATED).body(facultyService.addFaculty(facultyDto));
+	}
+	
 }

@@ -22,4 +22,18 @@ public class FacultyService {
 		else return new Faculty();
 	}
 	
+	public Faculty addFaculty(FacultyDto facultyDto) {
+		Faculty faculty = Faculty.builder()
+							.facultyId(facultyDto.getFacultyId())
+							.name(facultyDto.getName())
+							.email(facultyDto.getEmail())
+							.phoneNumber(facultyDto.getPhoneNumber())
+							.address(facultyDto.getAddress())
+							.salary(facultyDto.getSalary())
+							.departmentName(facultyDto.getDepartmentName())
+							.build();
+		return facultyRepository.save(faculty);
+		
+	}
+	
 }

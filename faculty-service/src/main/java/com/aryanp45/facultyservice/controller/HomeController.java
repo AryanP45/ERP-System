@@ -29,4 +29,8 @@ public class HomeController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(facultyService.addFaculty(facultyDto));
 	}
 	
+	@GetMapping("/all")
+	public ResponseEntity<?> getAllFaculty(){
+		return ResponseEntity.ok(facultyService.getAllFaculty());
+	}
 }

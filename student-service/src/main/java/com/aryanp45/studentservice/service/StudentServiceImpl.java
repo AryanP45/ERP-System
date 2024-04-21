@@ -36,4 +36,8 @@ public class StudentServiceImpl{
 				 		.build();
 		return studentRepository.save(student);
 	 }
+	
+	 public List<Student> getAllStudents(){
+		 return studentRepository.findAll();
+	 }
 }

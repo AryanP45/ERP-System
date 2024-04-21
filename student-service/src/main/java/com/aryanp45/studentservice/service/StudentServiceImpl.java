@@ -24,4 +24,16 @@ public class StudentServiceImpl{
 		else return new Student();
 	}
 	
+	 public Student addStudent(StudentDto studentDto) {
+		 Student student = Student.builder()
+				 		.prn(studentDto.getPrn())
+				 		.name(studentDto.getName())
+				 		.email(studentDto.getEmail())
+				 		.address(studentDto.getAddress())
+				 		.phoneNumber(studentDto.getPhoneNumber())
+				 		.enrollmentStatus(studentDto.getEnrollmentStatus())
+				 		.departmentName(studentDto.getDepartmentName())
+				 		.build();
+		return studentRepository.save(student);
+	 }
 }

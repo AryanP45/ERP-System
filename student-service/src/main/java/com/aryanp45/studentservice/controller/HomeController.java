@@ -40,5 +40,10 @@ public class HomeController {
 		return ResponseEntity.ok(studentService.getStudentInfoFromId(id));
 	}
 	
+	@PostMapping("/add")
+	public ResponseEntity<?> addStudent(@RequestBody StudentDto studentDto){
+		return ResponseEntity.status(HttpStatus.CREATED).body(studentService.addStudent(studentDto));
+	}
+	
 	
 }

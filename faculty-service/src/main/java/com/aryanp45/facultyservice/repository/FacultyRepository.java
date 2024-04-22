@@ -11,4 +11,5 @@ import com.aryanp45.facultyservice.model.Faculty;
 @Repository
 public interface FacultyRepository extends JpaRepository<Faculty, Long> {
 	Optional<Faculty> findByFacultyId(Long facultyId);
+	void deleteByFacultyId(Long facultyId);
 }

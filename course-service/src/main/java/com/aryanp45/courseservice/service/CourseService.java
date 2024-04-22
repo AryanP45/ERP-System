@@ -24,4 +24,19 @@ public class CourseService {
 		return courseRepository.findAll();
 	}
 	
+	public Course getCourseById(Long id) {
+		Optional<Course> course = courseRepository.findById(id);
+		if(course.isPresent()) return course.get();
+		else return new Course();
+	}
+	
+	public Course getCourseByCourseCode(String courseCode) {
+		Optional<Course> course = courseRepository.findByCourseCode(courseCode);
+		if(course.isPresent()) return course.get();
+		else {
+			log.info("course is not present. ( incorrect proper courseCode ) ");			
+			return new Course();
+		}
+	}
+	
 }

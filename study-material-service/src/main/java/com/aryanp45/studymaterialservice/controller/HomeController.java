@@ -25,4 +25,10 @@ public class HomeController {
 		return ResponseEntity.ok(studyMaterialService.getAllMaterials());
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getMaterialById(@PathVariable Long id){
+		System.out.println(id);
+		return ResponseEntity.ok(studyMaterialService.getMaterialById(id));
+	}
+	
 }

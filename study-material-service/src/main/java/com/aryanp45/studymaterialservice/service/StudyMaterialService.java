@@ -20,5 +20,11 @@ public class StudyMaterialService {
 		return studyMaterialRepository.findAll();
 	}
 	
+	public StudyMaterial getMaterialById(Long id) {
+		Optional<StudyMaterial> studyMaterial =  studyMaterialRepository.findById(id);
+		if(studyMaterial.isEmpty()) return new StudyMaterial();
+		else return studyMaterial.get();
+	}
+	
 	
 }

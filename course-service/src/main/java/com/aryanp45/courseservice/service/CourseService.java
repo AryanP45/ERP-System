@@ -39,4 +39,20 @@ public class CourseService {
 		}
 	}
 	
+	public Course addCourse(CourseDto courseDto) {
+		
+		Optional<Course> courseOptional = courseRepository.findByCourseCode(courseDto.getCourseCode());	// courseCode is unique
+		log.info("Course already present (cannot add course with same code)");
+		if(courseOptional.isPresent()) return new Course();
+		
+		Course course= Course.builder()
+				.name(courseDto.getName())
+				.department(courseDto.getDepartment())
+				.intake(courseDto.getIntake())
+				.marks(courseDto.getMarks())
+				.semester(courseDto.getSemester())
+				.courseCode(courseDto.getCourseCode())
+				.build();
+		return courseRepository.save(course);
+	}
 }

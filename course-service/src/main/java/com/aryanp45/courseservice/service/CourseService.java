@@ -67,4 +67,15 @@ public class CourseService {
 		}
 	}
 	
+	public Course deleteByCourseCode(String courseCode) {
+		Optional<Course> course = courseRepository.findByCourseCode(courseCode);
+		if(course.isPresent()) {
+			courseRepository.deleteByCourseCode(courseCode);
+			return course.get();
+		}else {
+			log.info("course not found to delete");
+			return null;
+		}
+	}
+	
 }

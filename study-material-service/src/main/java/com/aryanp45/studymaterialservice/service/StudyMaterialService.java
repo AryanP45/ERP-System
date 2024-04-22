@@ -26,5 +26,13 @@ public class StudyMaterialService {
 		else return studyMaterial.get();
 	}
 	
+	public StudyMaterial addMaterial(StudyMaterialDto studyMaterialDto) {
+		StudyMaterial studyMaterial = StudyMaterial.builder()
+													.title(studyMaterialDto.getTitle())
+													.files(studyMaterialDto.getFiles())
+													.timestamp(studyMaterialDto.getTimestamp())
+													.build();
+		return studyMaterialRepository.save(studyMaterial);
+	}
 	
 }

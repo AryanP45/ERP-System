@@ -31,4 +31,9 @@ public class HomeController {
 		return ResponseEntity.ok(studyMaterialService.getMaterialById(id));
 	}
 	
+	@PostMapping("/add")
+	public ResponseEntity<?> addMaterial(@RequestBody StudyMaterialDto studyMaterialDto){
+		return ResponseEntity.status(HttpStatus.CREATED).body(studyMaterialService.addMaterial(studyMaterialDto));
+	}
+	
 }

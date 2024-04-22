@@ -37,4 +37,13 @@ public class CourseController {
 		return ResponseEntity.ok(courseService.getCourseByCourseCode(courseCode));
 	}
 	
+	@PostMapping("/add")
+	public ResponseEntity<?> addCourse(@RequestBody CourseDto courseDto){
+		return ResponseEntity.status(HttpStatus.CREATED).body(courseService.addCourse(courseDto));
+	}
+	
+	@DeleteMapping("/delete/id/{id}")
+	public ResponseEntity<?> deleteCourseById(@PathVariable Long id){
+		return ResponseEntity.ok(courseService.deleteCourseById(id));
+	}
 }

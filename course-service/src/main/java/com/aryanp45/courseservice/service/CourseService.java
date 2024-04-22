@@ -55,4 +55,16 @@ public class CourseService {
 				.build();
 		return courseRepository.save(course);
 	}
+	
+	public Course deleteCourseById(Long id) {
+		Optional<Course> course = courseRepository.findById(id);
+		if(course.isPresent()) {
+			courseRepository.deleteById(id);
+			return course.get();
+		}else {
+			log.info("course not found to delete");
+			return null;
+		}
+	}
+	
 }

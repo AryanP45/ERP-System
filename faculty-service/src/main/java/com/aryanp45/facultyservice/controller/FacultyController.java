@@ -20,23 +20,25 @@ import lombok.RequiredArgsConstructor;
 public class FacultyController {
 	private final FacultyService facultyService;
 
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getFacultyById(@PathVariable Long id) {
-		return ResponseEntity.ok(facultyService.getFacultyById(id));
-	}
-
-	@PostMapping("/add")
-	public ResponseEntity<?> addFaculty(@RequestBody FacultyDto facultyDto) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(facultyService.addFaculty(facultyDto));
+	@GetMapping("/{facultyId}")
+	public ResponseEntity<?> getFacultyByFacultyId(@PathVariable Long facultyId) {
+		return ResponseEntity.ok(facultyService.getFacultyByFacultyId(facultyId));
 	}
 
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllFaculty() {
 		return ResponseEntity.ok(facultyService.getAllFaculty());
 	}
+	
+	@PostMapping("/add")
+	public ResponseEntity<?> addFaculty(@RequestBody FacultyDto facultyDto) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(facultyService.addFaculty(facultyDto));
+	}
 
 	@DeleteMapping("/delete/{facultyId}")
 	public ResponseEntity<?> deleteByFacultyId(@PathVariable Long facultyId) {
 		return ResponseEntity.ok(facultyService.deleteByFacultyId(facultyId));
 	}
+	
+	// update faculty details
 }

@@ -20,8 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 public class FacultyService {
 	private final FacultyRepository facultyRepository;
 	
-	public Faculty getFacultyById(Long id) {
-		Optional<Faculty> faculty = facultyRepository.findByFacultyId(id);
+	public Faculty getFacultyByFacultyId(Long facultyId) {
+		Optional<Faculty> faculty = facultyRepository.findByFacultyId(facultyId);
 		if(faculty.isPresent()) return faculty.get();
 		else {
 			log.info("No faculty found with specified id");

@@ -3,6 +3,7 @@ package com.aryanp45.studentservice.controller;
 import org.springframework.core.style.StylerUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,10 +17,12 @@ import com.aryanp45.studentservice.service.StudentService;
 import com.aryanp45.studentservice.service.StudentServiceImpl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api/student")
 @RequiredArgsConstructor
+@Slf4j
 public class StudentController {
 	
 	private final StudentServiceImpl studentService;
@@ -35,9 +38,9 @@ public class StudentController {
 	*/
 	
 	// ID means PRN number in student
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getStudentInfoFromId(@PathVariable Long id){
-		return ResponseEntity.ok(studentService.getStudentInfoFromId(id));
+	@GetMapping("/{prn}")
+	public ResponseEntity<?> getStudentInfoFromPrn(@PathVariable Long prn){
+		return ResponseEntity.ok(studentService.getStudentInfoFromPrn(prn));
 	}
 	
 	@PostMapping("/add")
@@ -50,4 +53,8 @@ public class StudentController {
 		return ResponseEntity.ok(studentService.getAllStudents());
 	}
 	
+	@DeleteMapping("/delete/{prn}")
+	public ResponseEntity<?> deleteStudentByPrn(@PathVariable Long prn){
+		return ResponseEntity.ok(studentService.deleteStudentByPrn(prn));
+	}
 }

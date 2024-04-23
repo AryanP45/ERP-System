@@ -3,6 +3,7 @@ package com.aryanp45.studentservice.model;
 import com.aryanp45.studentservice.enums.Department;
 import com.aryanp45.studentservice.enums.EnrollmentStatus;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private Long prn;
 	private String name;
 	private String email;

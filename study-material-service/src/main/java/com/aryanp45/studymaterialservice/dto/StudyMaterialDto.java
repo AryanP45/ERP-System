@@ -11,4 +11,6 @@ public class StudyMaterialDto {
 	private List<String> files;
 
 	private Date timestamp;
+	
+	private String createdBy;
 }

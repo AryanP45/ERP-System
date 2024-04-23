@@ -32,4 +32,6 @@ public class StudyMaterial {
 	
 	private Date timestamp;
 	
+	private String createdBy;		// facultyId
+	
 }

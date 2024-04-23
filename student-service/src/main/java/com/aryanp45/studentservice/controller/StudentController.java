@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/student")
 @RequiredArgsConstructor
-public class HomeController {
+public class StudentController {
 	
 	private final StudentServiceImpl studentService;
 	/*

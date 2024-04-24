@@ -1,6 +1,5 @@
 package com.aryanp45.studentservice.controller;
 
-import org.springframework.core.style.StylerUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,17 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aryanp45.studentservice.dto.StudentDto;
-import com.aryanp45.studentservice.enums.Department;
-import com.aryanp45.studentservice.service.StudentService;
 import com.aryanp45.studentservice.service.StudentServiceImpl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api/student")
 @RequiredArgsConstructor
-@Slf4j
 public class StudentController {
 	
 	private final StudentServiceImpl studentService;

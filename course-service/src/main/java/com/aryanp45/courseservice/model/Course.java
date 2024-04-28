@@ -1,7 +1,5 @@
 package com.aryanp45.courseservice.model;
 
-import java.math.BigDecimal;
-
 import com.aryanp45.courseservice.enums.Department;
 import com.aryanp45.courseservice.enums.Semester;
 

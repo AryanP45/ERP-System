@@ -29,4 +29,19 @@ public class AuthController {
         return service.saveUser(user);
     }
 
+    @PostMapping("/token")
+    public String getToken(@RequestBody AuthRequest authRequest) {
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+        if (authenticate.isAuthenticated()) {
+            return service.generateToken(authRequest.getUsername());
+        } else {
+            throw new RuntimeException("invalid access");
+        }
+    }
+
+    @GetMapping("/validate")
+    public String validateToken(@RequestParam("token") String token) {
+        service.validateToken(token);
+        return "Token is valid";
+    }
 }

@@ -15,8 +15,9 @@ public class AuthService {
 	private  final PasswordEncoder passwordEncoder;
 	private  final JwtService jwtService;
 
-	public String saveUser(UserCredential credential) {
+	public String saveUser(UserCredential credential,String role) {
 		credential.setPassword(passwordEncoder.encode(credential.getPassword()));
+		credential.setRole(role);
 		repository.save(credential);
 		return "user added to the system";
 	}

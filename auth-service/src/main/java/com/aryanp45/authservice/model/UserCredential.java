@@ -1,5 +1,11 @@
 package com.aryanp45.authservice.model;
 
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+
+import com.aryanp45.authservice.enums.Role;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,5 +26,6 @@ public class UserCredential {
 	private String name;
 	private String email;
 	private String password;
+	private String role;
 	
 }
